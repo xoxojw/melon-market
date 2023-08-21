@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
-import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { useIsMobile } from "@/app/hooks/useIsMobile";
 
 const cls = (...classnames: string[]) => {
   return classnames.join(" ");
@@ -12,6 +12,7 @@ const Enter = () => {
   const [method, setMethod] = useState<"email" | "phone">("email");
   const onEmailClick = () => setMethod("email");
   const onPhoneClick = () => setMethod("phone");
+  const isMobile = useIsMobile();
   return (
     <div className="mt-16 px-4 w-11/12 mx-auto">
       <h3 className="text-3xl font-bold text-center">당신 근처의 멜론마켓</h3>
@@ -74,7 +75,7 @@ const Enter = () => {
             </div>
             <button className="mt-6 px-4 py-2 bg-melon-300 text-white border-transparent outline-melon-400 hover:bg-melon-400 focus:ring-2 focus:ring-melon-400 focus:border-melon-400 rounded-md shadow-sm font-medium">
               {method === "email" ? "이메일 링크로 로그인" : null}
-              {method === "phone" ? "일회성 비밀번호 받기" : null}
+              {method === "phone" ? "인증번호 받기" : null}
             </button>
           </form>
           <div className="mt-11">
@@ -97,11 +98,11 @@ const Enter = () => {
                   <path fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"/>
                 </g>
                 </svg>
-                <span className="text-sm ml-3">Google 로그인</span>
+                <span className="text-sm ml-3">{isMobile ? "" : "Google 로그인"}</span>
               </button>
               <button className="bg-logos-kakao flex justify-center items-center py-2 px-4 border border-gray-300 rounded-md shadow-sm hover:bg-logos-kakaoHover">
                 <FontAwesomeIcon icon={faComment} color="#000000" size="xl" />
-                <span className="text-sm ml-3">카카오 로그인</span>
+                <span className="text-sm ml-3">{isMobile ? "" : "카카오 로그인"}</span>
               </button>
             </div>
           </div>

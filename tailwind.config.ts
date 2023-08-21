@@ -22,8 +22,8 @@ const config: Config = {
           900: '#124B26',
         },
         logos: {
-          kakao: '#FAE100',
-          kakaoHover: '#FFE81C',
+          kakao: '#FFE81C',
+          kakaoHover: '#FAE100',
         },
       }
     }
