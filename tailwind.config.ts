@@ -8,13 +8,27 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
-    },
+      colors: {
+        melon: {
+          50: '#DCF2E4',
+          100: '#BDE0C9',
+          200: '#9DCEAE',
+          300: '#7EC898',
+          400: '#57BF7B',
+          500: '#5DD386',
+          600: '#359055',
+          700: '#297A45',
+          800: '#1A6534',
+          900: '#124B26',
+        },
+        logos: {
+          kakao: '#FAE100',
+          kakaoHover: '#FFE81C',
+        },
+      }
+    }
   },
-  plugins: [],
+  darkMode: "media",
+  plugins: [require("@tailwindcss/forms")],
 }
 export default config
