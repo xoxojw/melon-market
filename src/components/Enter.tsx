@@ -1,22 +1,23 @@
 "use client";
+import { NextComponentType } from "next";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
-import { useIsMobile } from "@/app/hooks/useIsMobile";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const cls = (...classnames: string[]) => {
   return classnames.join(" ");
 }
 
-const Enter = () => {
+const Enter: NextComponentType = () => {
   const [method, setMethod] = useState<"email" | "phone">("email");
   const onEmailClick = () => setMethod("email");
   const onPhoneClick = () => setMethod("phone");
   const isMobile = useIsMobile();
   return (
-    <div className="mt-16 px-4 w-11/12 mx-auto">
+    <div className="mt-16 px-4 mx-auto">
       <h3 className="text-3xl font-bold text-center">당신 근처의 멜론마켓</h3>
-      <div className="mt-8 max-w-5xl mx-auto">
+      <div className="mt-8 mx-auto">
         <div className="flex flex-col items-center">
           <h5 className="text-sm text-gray-500">다음으로 로그인하기</h5>
           <div className="mt-8 border-b grid grid-cols-2 gap-16 w-full">
@@ -73,7 +74,7 @@ const Enter = () => {
                 )
                 : null}
             </div>
-            <button className="mt-6 px-4 py-2 bg-melon-300 text-white border-transparent outline-melon-400 hover:bg-melon-400 focus:ring-2 focus:ring-melon-400 focus:border-melon-400 rounded-md shadow-sm font-medium">
+            <button className="mt-6 px-4 py-2 bg-melon-300 text-white border-transparent outline-melon-400 hover:bg-melon-400 focus:ring-2 focus:ring-melon-400 focus:border-melon-400 rounded-md shadow-sm font-medium transition ease-in-out duration-200">
               {method === "email" ? "이메일 링크로 로그인" : null}
               {method === "phone" ? "인증번호 받기" : null}
             </button>
