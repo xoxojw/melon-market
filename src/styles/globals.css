@@ -10,6 +10,12 @@
   }
 }
 
+body {
+  width: 11/12;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
