@@ -45,13 +45,14 @@ const Enter: NextComponentType = () => {
         </div>
         <div className="max-w-xl mx-auto">
           <form className="flex flex-col mt-8">
-            <label className="text-sm font-medium text-gray-700">
+            <label htmlFor="input" className="text-sm font-medium text-gray-700">
               {method === "email" ? "이메일" : null}
               {method === "phone" ? "핸드폰 번호" : null}
             </label>
             <div className="mt-1">
               {method === "email"
                 ? <input
+                  id="input"
                   type="email"
                   className="appearance-none w-full px-3 py-2 border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-melon-300 focus:border-melon-300"
                   placeholder="example@email.com"
@@ -65,6 +66,7 @@ const Enter: NextComponentType = () => {
                     +82
                   </span>
                   <input
+                    id="input"
                     type="number"
                     className="w-full px-3 py-2 border-gray-300 rounded-md rounded-l-none shadow-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-melon-300 focus:border-melon-300"
                     placeholder="010-0000-0000"
