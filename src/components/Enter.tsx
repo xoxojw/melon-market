@@ -43,7 +43,7 @@ const Enter: NextComponentType = () => {
             </button>
           </div>
         </div>
-        <div className="max-w-xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           <form className="flex flex-col mt-8">
             <label htmlFor="input" className="text-sm font-medium text-gray-700">
               {method === "email" ? "이메일" : null}
