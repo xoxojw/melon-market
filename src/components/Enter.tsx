@@ -4,10 +4,9 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import { cls } from "../../libs/utils";
 
-const cls = (...classnames: string[]) => {
-  return classnames.join(" ");
-}
+
 
 const Enter: NextComponentType = () => {
   const [method, setMethod] = useState<"email" | "phone">("email");

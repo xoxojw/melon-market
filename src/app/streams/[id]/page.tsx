@@ -8,7 +8,7 @@ const StreamsDetail: NextPage = () => {
           <div className="w-full rounded-md shadow-sm bg-slate-300 aspect-video" />
           <h3 className="text-gray-800 font-semibold text-2xl mt-2">라이브 스트림 재생 영역</h3>
       </div>
-      <div className="h-[50vh] overflow-y-scroll mt-10 py-10 pb-16 px-4 space-y-4 flex flex-col">
+      <div className="h-[50vh] overflow-y-scroll mt-3 pb-24 px-4 space-y-4 flex flex-col">
         <div className="flex items-start space-x-2">
           <div className="w-8 h-8 rounded-full bg-slate-400" />
           <div className="w-1/2 text-sm text-gray-700 p-3 border border-gray-300 rounded-md">

@@ -15,10 +15,10 @@ body {
   max-width: 768px;
   margin: 0 auto;
   
-  -ms-overflow-style: none;
+  /* -ms-overflow-style: none;
   ::-webkit-scrollbar {
     display: none;
-  }
+  } */
 }
 
 /* :root {
