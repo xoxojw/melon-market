@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { useIsMobile } from "@/hooks/useIsMobile";
-import { cls } from "../../libs/utils";
+import { cls } from "@/libs/utils";
 import Button from "./Button";
 
 const Enter: NextComponentType = () => {
