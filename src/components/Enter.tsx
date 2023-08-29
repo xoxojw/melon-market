@@ -4,10 +4,8 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { useIsMobile } from "@/hooks/useIsMobile";
-
-const cls = (...classnames: string[]) => {
-  return classnames.join(" ");
-}
+import { cls } from "../../libs/utils";
+import Button from "./Button";
 
 const Enter: NextComponentType = () => {
   const [method, setMethod] = useState<"email" | "phone">("email");
@@ -76,10 +74,8 @@ const Enter: NextComponentType = () => {
                 )
                 : null}
             </div>
-            <button className="mt-6 px-4 py-2 bg-melon-300 text-white border-transparent outline-melon-400 hover:bg-melon-400 focus:ring-2 focus:ring-melon-400 focus:border-melon-400 rounded-md shadow-sm font-medium transition ease-in-out duration-200">
-              {method === "email" ? "이메일 링크로 로그인" : null}
-              {method === "phone" ? "인증번호 받기" : null}
-            </button>
+              {method === "email" ? <Button text="이메일 링크로 로그인" /> : null}
+              {method === "phone" ? <Button text="인증번호 받기" /> : null}
           </form>
           <div className="mt-11">
             <div className="relative">
