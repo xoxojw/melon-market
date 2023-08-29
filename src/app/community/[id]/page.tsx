@@ -1,4 +1,6 @@
 import Template from "@/app/template";
+import Button from "@/components/Button";
+import TextArea from "@/components/TextArea";
 import type { NextPage } from "next";
 
 const CommunityPostDetail: NextPage = () => {
@@ -73,14 +75,8 @@ const CommunityPostDetail: NextPage = () => {
           </div>
         </div>
         <div className="px-4">
-          <textarea
-            className="mt-1 shadow-sm w-full focus:ring-melon-500 rounded-md border-gray-300 focus:border-melon-500 resize-none"
-            rows={4}
-            placeholder="댓글을 남겨보세요!"
-          />
-          <button className="w-full mt-6 px-4 py-2 bg-melon-300 text-white border-transparent outline-melon-400 hover:bg-melon-400 focus:ring-2 focus:ring-melon-400 focus:border-melon-400 rounded-md shadow-sm font-medium transition ease-in-out duration-200">
-            Reply
-          </button>
+          <TextArea placeholder="댓글을 남겨보세요!" />
+          <Button text="답글달기" />
         </div>
       </div>
     </Template>

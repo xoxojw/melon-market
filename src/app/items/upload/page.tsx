@@ -1,4 +1,5 @@
 import Template from "@/app/template";
+import Button from "@/components/Button";
 import type { NextPage } from "next";
 
 const Upload: NextPage = () => {
@@ -55,11 +56,7 @@ const Upload: NextPage = () => {
             className="mt-1 shadow-sm w-full focus:ring-melon-300 focus:border-melon-300 rounded-md border-gray-300 resize-none"
             rows={10} />
         </div>
-        <button
-          className="w-full mx-auto items-center mt-6 px-4 py-2 bg-melon-300 text-white border-transparent outline-melon-400 hover:bg-melon-400 focus:border-melon-400 rounded-md shadow-sm font-medium transition ease-in-out duration-200"
-        >
-          업로드 하기
-        </button>
+        <Button text="업로드 하기" />
       </div>
     </Template>
   );

@@ -1,16 +1,14 @@
-"use client";
 import type { NextPage } from "next";
 import Template from "../template";
-import { cls } from "../../../libs/utils";
-import { useIsMobile } from "@/hooks/useIsMobile";
+import FloatingButton from "@/components/FloatingButton";
+import Link from "next/link";
 
 const Community: NextPage = () => {
-  const isMobile = useIsMobile();
   return (
     <Template title="동네생활" hasTabBar>
       <div className="px-4 space-y-8">
         {[1, 2, 3, 4, 5, 6].map((_, i) => (
-          <div className="flex flex-col items-start cursor-pointer">
+          <Link href={`/community/${i}`} className="flex flex-col items-start cursor-pointer">
             <span className="flex items-start px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
               동네질문
             </span>
@@ -57,12 +55,9 @@ const Community: NextPage = () => {
                 <span className="flex space-x-2 items-center text-sm">답변 1</span>
               </span>
             </div>
-          </div>
+          </Link>
         ))}
-        <button className={cls(
-          isMobile ? "right-5" : "right-[30%]",
-          "fixed bottom-28 bg-melon-300 text-white rounded-full p-4 shadow-lg hover:bg-melon-400 transition ease-in-out duration-200"
-        )}>
+        <FloatingButton href="/community/write">
           <svg
             className="w-6 h-6"
             fill="none"
@@ -77,7 +72,7 @@ const Community: NextPage = () => {
               d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
             ></path>
           </svg>
-        </button>
+        </FloatingButton>
       </div>
     </Template>
   );

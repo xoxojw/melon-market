@@ -1,12 +1,14 @@
 import type { NextPage } from "next";
 import Template from "../template";
+import Link from "next/link";
 
 const Chats: NextPage = () => {
   return (
     <Template title="채팅" hasTabBar>
         <div className="divide-y-[1px] ">
-        {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((_, i) => (
-          <div
+        {[1, 1, 1, 1].map((_, i) => (
+          <Link
+            href={`/chats/${i}`}
             key={i}
             className="flex px-4 cursor-pointer py-3 items-center space-x-3"
           >
@@ -17,7 +19,7 @@ const Chats: NextPage = () => {
                 See you tomorrow in the corner at 2pm!
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </Template>
