@@ -1,6 +1,6 @@
 "use client";
 import { useIsMobile } from "@/hooks/useIsMobile";
-import { cls } from "../../libs/utils";
+import { cls } from "@/libs/utils";
 import Link from "next/link";
 
 interface FloatingButtonProps {

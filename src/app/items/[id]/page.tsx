@@ -3,7 +3,7 @@ import Template from "@/app/template";
 const ItemDetail = () => {
   return (
     <Template canGoBack>
-      <div className="px-4 py-10">
+      <div className="px-4 pb-10">
         <div className="mb-8">
           <div className="h-96 bg-slate-300" />
           <div className="flex cursor-pointer py-5 border-t border-b items-center space-x-3">
