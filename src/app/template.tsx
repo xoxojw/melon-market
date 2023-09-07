@@ -1,5 +1,5 @@
-import Header from "@/components/Header";
-import TabBar from "@/components/TabBar";
+import Header from "@/components/Header/Header";
+import TabBar from "@/components/TabBar/TabBar";
 import { cls } from "@/libs/utils";
 
 interface LayoutProps {
