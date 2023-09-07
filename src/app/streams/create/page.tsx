@@ -1,5 +1,5 @@
 import Template from '@/app/template';
-import Button from '@/components/Button';
+import Button from '@/components/Button/Button';
 import { NextPage } from 'next';
 
 const Create: NextPage = () => {

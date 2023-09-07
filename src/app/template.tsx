@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import TabBar from "@/components/TabBar";
-import { cls } from "../../libs/utils";
+import { cls } from "@/libs/utils";
 
 interface LayoutProps {
 	title?: string;

@@ -8,7 +8,7 @@ interface FloatingButtonProps {
   href: string;
 }
 
-const FloatingButton = ({children, href}: FloatingButtonProps) => {
+export const FloatingButton = ({ children, href }: FloatingButtonProps) => {
   const isMobile = useIsMobile();
   return (
     <Link href={href}>
@@ -19,7 +19,5 @@ const FloatingButton = ({children, href}: FloatingButtonProps) => {
         {children}
       </button>
     </Link>
-  )
-}
-
-export default FloatingButton
+  );
+};
