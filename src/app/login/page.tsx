@@ -1,11 +1,11 @@
 "use client";
 import { NextPage } from "next";
-import Enter from "@/components/Enter/Enter";
+import Auth from "@/components/Auth/Auth";
 
 const Intro: NextPage = () => {
   return (
     <>
-      <Enter />
+      <Auth />
     </>
   );
 };
