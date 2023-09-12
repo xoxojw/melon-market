@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Template from "../template";
-import { FloatingButton } from "@/components/FloatingButton/FloatingButton";
+import { FloatingButton } from "@/components";
 import Link from "next/link";
 
 const Community: NextPage = () => {
