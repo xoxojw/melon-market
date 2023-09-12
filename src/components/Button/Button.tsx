@@ -1,4 +1,4 @@
-import { cls } from "@/libs/utils";
+import { cls } from "@/libs/client/utils";
 
 interface ButtonProps {
   large?: boolean;
@@ -6,7 +6,7 @@ interface ButtonProps {
   [key: string]: any;
 }
 
-export const Button = ({ large = false, onClick, text, ...rest }: ButtonProps) => {
+const Button = ({ large = false, onClick, text, ...rest }: ButtonProps) => {
   return (
     <button
       {...rest}
@@ -17,3 +17,5 @@ export const Button = ({ large = false, onClick, text, ...rest }: ButtonProps) =
     </button>
   );
 };
+
+export default Button;

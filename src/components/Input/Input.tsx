@@ -8,7 +8,7 @@ interface InputProps {
   type: string;
 }
 
-export const Input = ({ label, name, kind = "text", register, type }: InputProps) => {
+const Input = ({ label, name, kind = "text", register, type }: InputProps) => {
   return (
     <>
       <label htmlFor={name} className="text-sm font-medium text-gray-700">
@@ -40,3 +40,5 @@ export const Input = ({ label, name, kind = "text", register, type }: InputProps
     </>
   );
 };
+
+export default Input;

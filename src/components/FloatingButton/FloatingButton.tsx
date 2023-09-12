@@ -1,6 +1,6 @@
 "use client";
-import { useIsMobile } from "@/hooks/useIsMobile";
-import { cls } from "@/libs/utils";
+import { useIsMobile } from "@/hooks";
+import { cls } from "@/libs/client/utils";
 import Link from "next/link";
 
 interface FloatingButtonProps {
@@ -8,7 +8,7 @@ interface FloatingButtonProps {
   href: string;
 }
 
-export const FloatingButton = ({ children, href }: FloatingButtonProps) => {
+const FloatingButton = ({ children, href }: FloatingButtonProps) => {
   const isMobile = useIsMobile();
   return (
     <Link href={href}>
@@ -21,3 +21,5 @@ export const FloatingButton = ({ children, href }: FloatingButtonProps) => {
     </Link>
   );
 };
+
+export default FloatingButton;
