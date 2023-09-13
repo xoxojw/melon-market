@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import { randomName } from "@/libs/client/utils";
-import client from "@/libs/server/client";
+import prismaClient from "@/libs/server/prismaClient";
 import sendMessage from "@/libs/server/twilioClient";
+import sendEmail from "@/libs/server/nodemailerClient";
 
 export const POST = async (req: NextRequest) => {
   const { email, phone } = await req.json();
@@ -11,7 +12,7 @@ export const POST = async (req: NextRequest) => {
   if (!userPayload) return NextResponse.json({ ok: false }, { status: 400 })
 
   const tokenPayload = Math.floor(100000 + Math.random() * 900000).toString();
-  const token = await client.token.create({
+  const token = await prismaClient.token.create({
     data: {
       payload: tokenPayload,
       user: {
@@ -29,6 +30,8 @@ export const POST = async (req: NextRequest) => {
   })
   if (phone) {
     sendMessage(tokenPayload);
+  } else if (email) {
+    sendEmail(email, tokenPayload)
   }
   console.log(token);
   return NextResponse.json({ ok: true }, { status: 200 })
