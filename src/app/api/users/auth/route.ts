@@ -1,26 +1,35 @@
+import { NextRequest, NextResponse } from "next/server";
+
 import { randomName } from "@/libs/client/utils";
 import client from "@/libs/server/client";
-import { NextRequest, NextResponse } from "next/server";
+import sendMessage from "@/libs/server/twilioClient";
 
 export const POST = async (req: NextRequest) => {
   const { email, phone } = await req.json();
-  const userPayload = phone ? { phone: Number(phone) } : { email }
+  const userPayload = phone ? { phone: Number(phone) } : email ? { email } : null;
+
+  if (!userPayload) return NextResponse.json({ ok: false }, { status: 400 })
+
+  const tokenPayload = Math.floor(100000 + Math.random() * 900000).toString();
   const token = await client.token.create({
     data: {
-      payload: "3333",
+      payload: tokenPayload,
       user: {
         connectOrCreate: {
           where: {
             ...userPayload,
           },
           create: {
-            name: randomName(userPayload),
+            name: randomName(userPayload)!,
             ...userPayload,
           },
         }
       }
     }
   })
+  if (phone) {
+    sendMessage(tokenPayload);
+  }
   console.log(token);
   return NextResponse.json({ ok: true }, { status: 200 })
 };

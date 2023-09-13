@@ -7,7 +7,5 @@ export const randomName = (payload: { phone?: number; email?: string }) => {
     return `User ${payload.phone.toString().slice(-4)}`;
   } else if (payload.email !== undefined) {
     return `User ${payload.email.split("@")[0]}`;
-  } else {
-    return "기본닉네임";
   }
 };
