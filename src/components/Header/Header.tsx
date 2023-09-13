@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { cls } from "@/libs/utils";
+import { cls } from "@/libs/client/utils";
 
 interface HeaderProps {
 	title?: string;

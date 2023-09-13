@@ -1,6 +1,6 @@
-import Template from '@/app/template';
-import Button from '@/components/Button/Button';
-import { NextPage } from 'next';
+import Template from "@/app/template";
+import { Button } from "@/components";
+import { NextPage } from "next";
 
 const Create: NextPage = () => {
   return (

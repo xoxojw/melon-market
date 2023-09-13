@@ -1,5 +1,5 @@
 import Template from "@/app/template";
-import Message from "@/components/Message";
+import { Message } from "@/components";
 import type { NextPage } from "next";
 
 const ChatDetail: NextPage = () => {
