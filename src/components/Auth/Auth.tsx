@@ -3,14 +3,13 @@ import { NextComponentType } from "next";
 import { useState } from "react";
 
 import { useForm } from "react-hook-form";
-import { useIsMobile } from "@/hooks/useIsMobile";
+import { useIsMobile } from "@/hooks";
 
-import { Button } from "@/components/Button/Button";
-import { Input } from "@/components/Input/Input";;
+import { TabButtons, Button, Input } from "@/components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 
-import TabButtons from "../TabButtons/TabButtons";
+import { useMutation } from "@/hooks";
 
 interface AuthForm {
   email?: string;
@@ -18,6 +17,7 @@ interface AuthForm {
 }
 
 const Auth: NextComponentType = () => {
+  const [login, { loading, data, error }] = useMutation("/api/users/auth");
   const isMobile = useIsMobile();
   const [submitting, setSubmitting] = useState(false);
 
@@ -34,13 +34,11 @@ const Auth: NextComponentType = () => {
     setMethod("phone");
   };
 
-  const onValid = (data: AuthForm) => {
-    setSubmitting(true);
-    fetch("/api/users/auth", {
-      method: "POST",
-      body: JSON.stringify(data),
-    }).then(() => setSubmitting(false));
+  const onValid = (validForm: AuthForm) => {
+    login(validForm);
   };
+
+  console.log(loading, data, error);
 
   return (
     <div className="mt-16 px-4 mx-auto">
@@ -103,13 +101,13 @@ const Auth: NextComponentType = () => {
                 <span className="px-2 bg-white text-gray-700 text-sm">다른 방법으로 로그인하기</span>
               </div>
             </div>
-            <div className="grid grid-cols-2 mt-2 gap-10">
+            <div className="grid grid-cols-2 mt-2 gap-8">
               <button className="flex justify-center items-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white">
                 <svg viewBox="0 0 48 48" height="32px" >
                 <clipPath id="g">
                   <path d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/>
                 </clipPath>
-                <g className="colors" clip-path="url(#g)">
+                <g className="colors" clipPath="url(#g)">
                   <path fill="#FBBC05" d="M0 37V11l17 13z"/>
                   <path fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z"/>
                   <path fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z"/>
