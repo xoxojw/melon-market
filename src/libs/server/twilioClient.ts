@@ -2,7 +2,7 @@ import { Twilio } from "twilio";
 
 const twilioClient = new Twilio(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
 
-const sendMessage = (tokenPayload: string) => {
+const sendMessage = (userPayload: number, tokenPayload: string) => {
   const message = twilioClient.messages.create({
     messagingServiceSid: process.env.TWILIO_MSID,
     // to: userPayload (twilio trial issue)
