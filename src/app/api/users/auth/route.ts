@@ -29,7 +29,7 @@ export const POST = async (req: NextRequest) => {
     }
   })
   if (phone) {
-    sendMessage(tokenPayload);
+    sendMessage(phone, tokenPayload);
   } else if (email) {
     sendEmail(email, tokenPayload)
   }
