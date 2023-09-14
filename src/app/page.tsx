@@ -1,8 +1,12 @@
+"use client";
 import type { NextPage } from "next";
 import Template from "./template";
 import { Item, FloatingButton } from "@/components";
+import { useUser } from "@/hooks";
 
 const Home: NextPage = () => {
+	const { user, isLoading } = useUser();
+	console.log(user, isLoading)
 	return (
 		<Template title="홈" hasTabBar>
 			<div className="flex flex-col space-y-5">

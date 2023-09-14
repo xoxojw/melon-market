@@ -1,9 +1,20 @@
+"use client";
+import { PATHNAME } from "@/constants/pathname";
+import { cls } from "@/libs/client/utils";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const TabBar = () => {
+	const pathname = usePathname();
 	return (
 		<nav className="fixed bottom-0 w-full max-w-3xl bg-white text-gray-800 border-t py-5 px-10 flex justify-between">
-			<Link href="/" className="flex flex-col items-center space-y-2">
+			<Link
+				href={PATHNAME.HOME}
+				className={cls("flex flex-col items-center space-y-2",
+					pathname === PATHNAME.HOME ? "text-melon-500" : "hover:text-gray-400 transition-colors"
+				)}
+				scroll={false}
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
@@ -20,7 +31,13 @@ const TabBar = () => {
 				</svg>
 				<span>홈</span>
 			</Link>
-			<Link href="/community" className="flex flex-col items-center space-y-2">
+			<Link
+				href={PATHNAME.COMMUNITY}
+				className={cls("flex flex-col items-center space-y-2",
+				pathname === PATHNAME.COMMUNITY ? "text-melon-500" : "hover:text-gray-400 transition-colors"
+				)}
+				scroll={false}
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
@@ -37,7 +54,13 @@ const TabBar = () => {
 				</svg>
 				<span>동네생활</span>
 			</Link>
-			<Link href="/chats" className="flex flex-col items-center space-y-2">
+			<Link
+				href={PATHNAME.CHATS}
+				className={cls("flex flex-col items-center space-y-2",
+				pathname === PATHNAME.CHATS ? "text-melon-500" : "hover:text-gray-400 transition-colors"
+				)}
+				scroll={false}
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
@@ -54,7 +77,13 @@ const TabBar = () => {
 				</svg>
 				<span>채팅</span>
 			</Link>
-			<Link href="/streams" className="flex flex-col items-center space-y-2">
+			<Link
+				href={PATHNAME.STREAMS}
+				className={cls("flex flex-col items-center space-y-2",
+				pathname === PATHNAME.STREAMS ? "text-melon-500" : "hover:text-gray-400 transition-colors"
+				)}
+				scroll={false}
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
@@ -70,7 +99,13 @@ const TabBar = () => {
 				</svg>
 				<span>라이브</span>
 			</Link>
-			<Link href="/profile" className="flex flex-col items-center space-y-2">
+			<Link
+				href={PATHNAME.PROFILE}
+				className={cls("flex flex-col items-center space-y-2",
+				pathname === PATHNAME.PROFILE ? "text-melon-500" : "hover:text-gray-400 transition-colors"
+				)}
+				scroll={false}
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"

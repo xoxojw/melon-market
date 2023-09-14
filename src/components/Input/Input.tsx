@@ -14,6 +14,14 @@ const Input = ({ label, name, kind = "text", register, type }: InputProps) => {
       <label htmlFor={name} className="text-sm font-medium text-gray-700">
         {label}
       </label>
+      {kind === "text" ? (
+        <input
+          {...register}
+          id={name}
+          type={type}
+          className="appearance-none w-full px-3 py-2 border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-melon-300 focus:border-melon-300"
+        />
+			) : null}
       {kind === "email" ? (
         <input
           {...register}
