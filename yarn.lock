@@ -1416,6 +1416,10 @@ internal-slot@^1.0.3, internal-slot@^1.0.5:
     has "^1.0.3"
     side-channel "^1.0.4"
 
+"iron-session@github:renchris/iron-session#v8-as-dependency":
+  version "8.0.0-alpha.0"
+  resolved "https://codeload.github.com/renchris/iron-session/tar.gz/6b3cb728671a4d89d04ab533545f40cbcaff015b"
+
 is-array-buffer@^3.0.1, is-array-buffer@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/is-array-buffer/-/is-array-buffer-3.0.2.tgz#f2653ced8412081638ecb0ebbd0c41c6e0aecbbe"

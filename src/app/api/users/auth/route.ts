@@ -7,7 +7,7 @@ import sendEmail from "@/libs/server/nodemailerClient";
 
 export const POST = async (req: NextRequest) => {
   const { email, phone } = await req.json();
-  const userPayload = phone ? { phone: Number(phone) } : email ? { email } : null;
+  const userPayload = phone ? { phone: phone } : email ? { email } : null;
 
   if (!userPayload) return NextResponse.json({ ok: false }, { status: 400 })
 
