@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { readCookieFromStorageServerAction, submitCookieToStorageServerAction } from "@/libs/server/serverActions";
+import { submitCookieToStorageServerAction } from "@/libs/server/serverActions";
 import prismaClient from "@/libs/server/prismaClient";
 
 export const POST = async (req: NextRequest) => {

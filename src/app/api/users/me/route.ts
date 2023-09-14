@@ -1,15 +1,16 @@
-import { readCookieFromStorageServerAction, submitCookieToStorageServerAction } from "@/libs/server/serverActions";
+import { readCookieFromStorageServerAction } from "@/libs/server/serverActions";
 import prismaClient from "@/libs/server/prismaClient";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export const GET = async (req: NextRequest) => {
+export const GET = async ( isPrivate = true ) => {
   // 사용자가 로그인 후 웹 서비스의 어느 페이지에 있든 자신의 고유 cookie 암호화 데이터는 가지고 올 것
   const cookieFromStorage = await readCookieFromStorageServerAction();
-  // console.log("api/users/me에서 쿠키확인", cookieFromStorage);
+  
+  if (isPrivate && !cookieFromStorage.user) return NextResponse.json({ ok: false, error: "로그인 해주세요." }, { status: 401 });
+
   const findProfile = await prismaClient.user.findUnique({
     where: { id: cookieFromStorage.user?.id },
   });
-  // console.log("me에서 가져온 프로필", findProfile, typeof findProfile);
   const userProfile = JSON.parse(
     JSON.stringify(
       findProfile,
