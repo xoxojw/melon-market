@@ -1,26 +1,35 @@
 "use client";
 import type { NextPage } from "next";
 import Template from "./template";
-import { Item, FloatingButton } from "@/components";
+import { Products, FloatingButton } from "@/components";
 import { useUser } from "@/hooks";
+import useSWR from "swr";
+import { Product } from "@prisma/client";
+
+interface ProductsResponse {
+	ok: boolean;
+	products: Product[];
+}
 
 const Home: NextPage = () => {
 	const { user, isLoading } = useUser();
-	console.log(user, isLoading)
+	const { data } = useSWR<ProductsResponse>("/api/products");
+	console.log("product data > ", data);
 	return (
 		<Template title="홈" hasTabBar>
-			<div className="flex flex-col space-y-5">
-				{[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((_, i) => (
-					<Item
-						key={i}
-						id={i}
-						title="iPhone 14"
-						price={70}
+			<main className="flex flex-col space-y-5 relative w-full h-full">
+				{data?.products.map((product) => (
+					<Products
+						key={product.id}
+						id={product.id}
+						title={product.name}
+						price={product.price}
 						comments={1}
 						hearts={1}
 					/>
 				))}
-				<FloatingButton href="/items/upload">
+				<FloatingButton
+					href="/products/upload">
 					<svg
 							className="h-6 w-6"
 							xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +46,7 @@ const Home: NextPage = () => {
 						/>
 					</svg>
 				</FloatingButton>
-			</div>
+			</main>
 		</Template>
 	);
 };

@@ -1,8 +1,11 @@
+"use client";
+import type { NextPage } from "next";
 import Template from "@/app/template";
 import { Button, TextArea } from "@/components";
-import type { NextPage } from "next";
+import { useForm } from "react-hook-form";
 
 const CommunityPostDetail: NextPage = () => {
+  const { register } = useForm();
   return (
     <Template canGoBack hasTabBar>
       <div>
@@ -74,7 +77,7 @@ const CommunityPostDetail: NextPage = () => {
           </div>
         </div>
         <div className="px-4">
-          <TextArea placeholder="댓글을 남겨보세요!" />
+          <TextArea register={register("comment")} placeholder="댓글을 남겨보세요!" rows={2} />
           <Button text="답글달기" />
         </div>
       </div>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-interface ItemProps {
+interface ProductsProps {
 	id: number;
 	title: string;
 	price: number;
@@ -8,17 +8,17 @@ interface ItemProps {
 	hearts: number;
 }
 
-const Item = ({ id, title, price, comments, hearts }: ItemProps) => {
+const Products = ({ id, title, price, comments, hearts }: ProductsProps) => {
 	return (
 		<Link
-			href={`/items/${id}`}
+			href={`/products/${id}`}
 			className="flex px-4 border-b pb-4 cursor-pointer justify-between"
 		>
 			<div className="flex space-x-4">
 				<div className="w-20 h-20 bg-gray-100 rounded-md" />
 				<div className="pt-2 flex flex-col">
 					<h3 className="text-sm font-medium text-gray-900">{title}</h3>
-          <span className="font-medium mt-1 text-gray-900">{price}</span>
+          <span className="font-medium mt-1 text-gray-900">{price}원</span>
 				</div>
 			</div>
 			<div className="flex space-x-1.5 items-end justify-end">
@@ -61,4 +61,4 @@ const Item = ({ id, title, price, comments, hearts }: ItemProps) => {
 	);
 };
 
-export default Item;
+export default Products;
