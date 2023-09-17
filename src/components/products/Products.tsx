@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-interface ItemProps {
+interface ProductsProps {
 	id: number;
 	title: string;
 	price: number;
@@ -8,10 +8,10 @@ interface ItemProps {
 	hearts: number;
 }
 
-const Item = ({ id, title, price, comments, hearts }: ItemProps) => {
+const Products = ({ id, title, price, comments, hearts }: ProductsProps) => {
 	return (
 		<Link
-			href={`/items/${id}`}
+			href={`/products/${id}`}
 			className="flex px-4 border-b pb-4 cursor-pointer justify-between"
 		>
 			<div className="flex space-x-4">
@@ -61,4 +61,4 @@ const Item = ({ id, title, price, comments, hearts }: ItemProps) => {
 	);
 };
 
-export default Item;
+export default Products;
