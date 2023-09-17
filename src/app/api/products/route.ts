@@ -22,3 +22,8 @@ export const POST = async (req: NextRequest) => {
 
   return NextResponse.json({ ok: true, product }, { status: 200 });
 };
+
+export const GET = async () => {
+  const products = await prismaClient.product.findMany({});
+  return NextResponse.json({ ok: true, products }, { status: 200 });
+}

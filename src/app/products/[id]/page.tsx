@@ -1,6 +1,14 @@
+"use client";
 import Template from "@/app/template";
+import { ProductDetailLoading } from "@/components";
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import useSWR from "swr";
 
-const ItemDetail = () => {
+const ProductDetail = () => {
+  const params = useParams();
+  const { data, isLoading } = useSWR(params.id ? `/api/products/${params.id}` : null);
+  if (isLoading) return <ProductDetailLoading />
   return (
     <Template canGoBack>
       <div className="px-4 pb-10">
@@ -9,22 +17,17 @@ const ItemDetail = () => {
           <div className="flex cursor-pointer py-5 border-t border-b items-center space-x-3">
             <div className="w-12 h-12 rounded-full bg-slate-200" />
             <div>
-              <p className="text-sm font-medium text-gray-700">스티브잡스</p>
-              <span className="text-xs font-medium text-gray-500">View profile &rarr;</span>
+              <p className="text-sm font-medium text-gray-700">{data?.product.user.name}</p>
+              <Link href={`users//profile/${data?.product.user.id}`}>
+                <span className="text-xs font-medium text-gray-500">View profile &rarr;</span>
+              </Link>
             </div>
           </div>
           <div className="mt-7">
-            <h1 className="text-3xl font-bold text-gray-900">Galaxy S50</h1>
-            <span className="block text-3xl mt-3">$140</span>
+            <h1 className="text-3xl font-bold text-gray-900">{data?.product.name}</h1>
+            <span className="block text-3xl mt-3">₩{data?.product.price}</span>
             <p className="text-base my-6 text-gray-700">
-              My money&apos;s in that office, right? If she start giving me some
-              bullshit about it ain&apos;t there, and we got to go someplace else
-              and get it, I&apos;m gonna shoot you in the head then and there.
-              Then I&apos;m gonna shoot that bitch in the kneecaps, find out where
-              my goddamn money is. She gonna tell me too. Hey, look at me when
-              I&apos;m talking to you, motherfucker. You listen: we go in there,
-              and that ni**a Winston or anybody else is in there, you the first
-              motherfucker to get shot. You understand?
+              {data?.product.description}
             </p>
             <div className="flex items-center justify-between space-x-4">
               <button className="flex-1 bg-melon-300 text-white rounded-md py-3 hover:bg-melon-400 transition ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-melon-700 focus:border-melon-300">Talk to seller</button>
@@ -65,4 +68,4 @@ const ItemDetail = () => {
   );
 };
 
-export default ItemDetail;
+export default ProductDetail;
